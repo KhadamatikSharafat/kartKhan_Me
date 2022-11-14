@@ -1,0 +1,18 @@
+#Django
+Django==3.0.3
+djangorestframework==3.14.0
+django-compat==1.0.15
+django-celery-beat==2.0.0
+django-celery-results==1.2.1
+
+
+
+
+
+#Photo & Image
+Pillow==9.3.0
+
+#Authentication
+
+#DataBase
+mysqlclient==2.1.1
