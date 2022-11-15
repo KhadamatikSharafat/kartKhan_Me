@@ -12,7 +12,7 @@
                          class="site-logo skip-data-lazy attachment-full size-full" alt="خدماتیک"></a>
             </div>
             <form action="#" method="post" role="form" class="log-form">
-
+                {% csrf_token %}
                 <div class="form-group mt-3">
                     <input type="text" name="codeMeli" class="form-control" id="codeMeli"
                            placeholder="کد ملی  خود را وارد كنيد..." required>
@@ -33,71 +33,77 @@
                         <label class="form-check-label">مرا بخاطر بسپار</label>
                     </div>
                 </div>
-                <button type="submit" class="text-uppercase"  onclick="login()"> ورود به صفحه</button>
+            </form>
+            <button type="submit" class="text-uppercase"  onclick="login()"> ورود به صفحه</button>
                 <div class="form-group mt-3">
                     <a href="#">رمز عبورتان را گم کرده اید؟ </a>
-                    <a href="#" class="form-link">سیاست حفظ حریم خصوصی </a>
+                    <a href="#" class="Privacy-link">سیاست حفظ حریم خصوصی </a>
                 </div>
-            </form>
 
         </div>
     </div>
-   <div class="wrapper"><!--Login Page Starts-->#}
-    <section id="login">
-    <div class="container-fluid">
-        <div class="row full-height-vh">
-            <div class="col-12 d-flex align-items-center justify-content-center gradient-aqua-marine">
-                <div class="card px-4 py-2 box-shadow-2 width-400">
-                    <div class="card-header text-center">
-                        <img src="{% static 'web/images/logo.jpg' %}" alt="company-logo" class="mb-3" width="120">
-                        <h4 class="text-uppercase text-bold-400 grey darken-1">ورود</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-block">
-
-
-                                <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
-                                        <fieldset class="form-group">
-                                            <label for="codeMeli">کد ملی</label>
-                                            <input type="text" class="form-control" id="" autocomplete="off">
-                                        </fieldset>
-                                    </div>
-
-                                <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
-                                        <fieldset class="form-group">
-                                            <label for="disabledInput">رمز عبور</label>
-                                            <input type="password" class="form-control" id="" >
-                                        </fieldset>
-                                    </div>
-
-                               <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0 ml-5">
-                                                <input type="checkbox" class="custom-control-input" checked id="rememberme">
-                                                <label class="custom-control-label float-left" for="rememberme">مرا به خاطر بسپار</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="text-center col-md-12">
-                                        <button class="btn btn-danger px-4 py-2 text-uppercase white font-small-4 box-shadow-2 border-0" onclick="login()">ورود</button>
-                                    </div>
-                                </div>
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!--Login Page Ends-->
-    </div>
+{#   <div class="wrapper"><!--Login Page Starts-->#}
+{#    <section id="login">#}
+{#    <div class="container-fluid">#}
+{#        <div class="row full-height-vh">#}
+{#            <div class="col-12 d-flex align-items-center justify-content-center gradient-aqua-marine">#}
+{#                <button type="submit" class="text-uppercase"  onclick="login()"> ورود به صفحه</button>#}
+{#                <div class="card px-4 py-2 box-shadow-2 width-400">#}
+{#                    #}
+{#                    <div class="card-header text-center">#}
+{#                        <img src="{% static 'web/images/logo.jpg' %}" alt="company-logo" class="mb-3" width="120">#}
+{#                        <h4 class="text-uppercase text-bold-400 grey darken-1">ورود</h4>#}
+{#                    </div>#}
+{##}
+{#                    <div class="card-body">#}
+{#                       #}
+{#                        <div class="card-block">#}
+{##}
+{##}
+{#                                <div class="col-xl-12 col-lg-12 col-md-12 mb-1">#}
+{#                                        <fieldset class="form-group">#}
+{#                                            <label for="codeMeli">کد ملی</label>#}
+{#                                            <input type="text" class="form-control" id="" autocomplete="off">#}
+{#                                        </fieldset>#}
+{#                                    </div>#}
+{##}
+{#                                <div class="col-xl-12 col-lg-12 col-md-12 mb-1">#}
+{#                                        <fieldset class="form-group">#}
+{#                                            <label for="disabledInput">رمز عبور</label>#}
+{#                                            <input type="password" class="form-control"  >#}
+{#                                        </fieldset>#}
+{#                                    </div>#}
+{#                            #}
+{##}
+{#                               <div class="form-group">#}
+{#                                    <div class="row">#}
+{#                                        <div class="col-md-12">#}
+{#                                            <div class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0 ml-5">#}
+{#                                                <input type="checkbox" class="custom-control-input" checked id="rememberme">#}
+{#                                                <label class="custom-control-label float-left" for="rememberme">مرا به خاطر بسپار</label>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{##}
+{#                                <div class="form-group">#}
+{#                                    <div class="text-center col-md-12">#}
+{#                                        #}
+{#                                        <button class="btn btn-danger px-4 py-2 text-uppercase white font-small-4 box-shadow-2 border-0" onclick="login()">ورود</button>#}
+{#                                    </div>#}
+{#                                </div>#}
+{##}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</section>#}
+{##}
+{#<!--Login Page Ends-->#}
+{#    </div>#}
 </section>
 {% endblock %}
 {% include 'web/footer.html' %}
@@ -135,7 +141,6 @@
             });
             return;
         }
-
 
         swal.fire({
                 title: 'ورود کاربر',
