@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9e41180-265a-4a37-be8e-e46eb1e27702" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kartKhan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kartKhan.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kartKhan/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/kartKhan/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kartdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/static/web/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/static/web/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/templates/web/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/templates/web/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/templates/web/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/templates/web/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/templates/web/pageLog.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/templates/web/raw-front/pageLog.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/templates/web/registerData.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/templates/web/registerData.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +42,7 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/user/Desktop/New folder/Main_kartKhan",
+    "last_opened_file_path": "C:/Users/user/Desktop/kartKhan/kartKhan/web/templates/web/raw-front",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -67,11 +58,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\kartKhan\kartKhan\web\templates\web\raw-front" />
       <recent name="C:\Users\user\Desktop\kartKhan\kartKhan\web\templates\web" />
       <recent name="C:\Users\user\Desktop\kartKhan\kartKhan\web\static\web\js" />
       <recent name="C:\Users\user\Desktop\kartKhan\kartKhan\web\static\web\css" />
       <recent name="C:\Users\user\Desktop\kartKhan\kartKhan\web\static\web\css\vendor" />
-      <recent name="C:\Users\user\Desktop\kartKhan\kartKhan\web\static\web\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\user\Desktop\kartKhan\kartKhan\web\templates\web" />
@@ -133,6 +124,7 @@
       <workItem from="1668487673182" duration="8374000" />
       <workItem from="1668499212444" duration="2165000" />
       <workItem from="1668503051896" duration="7032000" />
+      <workItem from="1668510807796" duration="3259000" />
     </task>
     <servers />
   </component>
@@ -149,17 +141,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/web/templates/web/login.html</url>
-          <line>145</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

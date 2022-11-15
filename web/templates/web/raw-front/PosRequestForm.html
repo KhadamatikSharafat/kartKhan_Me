@@ -1,7 +1,40 @@
-{% load static %}
-{% include 'web/hader.html' %}
-{% block body %}
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Favicons -->
+    <link href="public/images/khadamatik_gorup_logo.png" rel="icon">
 
+    <!-- Persian DateTime Picker CND -->
+    <link rel="stylesheet" href="https://unpkg.com/@majidh1/jalalidatepicker/dist/jalalidatepicker.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap"
+          rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="public/vendor/bootstrap/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link href="public/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="public/vendor/aos/aos.css" rel="stylesheet">
+    <link href="public/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="public/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Variables CSS Files -->
+    <link href="src/css/variables.css" rel="stylesheet">
+
+    <!--  Main CSS File -->
+    <link href="src/css/main.css" rel="stylesheet">
+
+    <!-- Toastr CSS  -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <!--    <link rel="stylesheet" href="node_modules/toastr/nuget/content/content/toastr.css">-->
+
+    <title>درخواست کارتخوان | خدماتیک</title>
+</head>
 <body class="pos">
 <!-- ======= pos Section ======= -->
 <section id="pos" class="">
@@ -9,10 +42,10 @@
         <div class="info">
             <div class="section-header">
                 <div class="row">
-                    <div class="col-md-3 form-group mt-2 mt-md-0">
+                    <div class="col-md-3 form-group mt-3 mt-md-0">
                         <div class="section-header">
                             <a href="https://khadamatik.ir/" class="logo" aria-label="Logo" title="خدماتیک ">
-                                <img src="{% static 'web/images/khadamatik_gorup_name_logo.png' %}"
+                                <img src="public/images/khadamatik_gorup_name_logo.png"
                                      class="site-logo skip-data-lazy attachment-full size-full" alt="خدماتیک"></a>
                         </div>
                     </div>
@@ -25,103 +58,115 @@
             <form action="" method="post" role="form" class="pos-form" id="pos-form">
                 <div class="row">
                     <div class="col-md-6 form-group mt-3 mt-md-0">
-                        <label for="name"> نام <span class='text-danger'>*</span></label>
-                        <input type="text" name="name" class="form-control" id="name"  value="{{ loginData.name }}" placeholder="نام خود را وارد كنيد..." required>
+                        <label for="Fname"> نام <span class='text-danger'>*</span></label>
+                        <input type="text" name="Fname" class="form-control" id="Fname"
+                               placeholder="نام خود را وارد كنيد..." required>
                     </div>
                     <div class="col-md-6 form-group mt-3 mt-md-0">
-                        <label for="family"> نام خانوادگی <span class='text-danger'>*</span></label>
-                        <input type="text" name="family" class="form-control" id="family" value="{{ loginData.family }}" placeholder="نام خانوادگی خود را وارد كنيد..." required>
+                        <label for="lname"> نام خانوادگی <span class='text-danger'>*</span></label>
+                        <input type="text" name="lname" class="form-control" id="lname"
+                               placeholder="نام خانوادگی خود را وارد كنيد..." required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="fatherName"> نام پدر<span class='text-danger'>*</span> </label>
-                        <input type="text" name="fatherName" class="form-control" id="fatherName"  value="{{ loginData.fatherName }}" placeholder="نام پدر خود را وارد كنيد..." required>
+                        <label for="father_name"> نام پدر<span class='text-danger'>*</span> </label>
+                        <input type="text" name="father_name" class="form-control" id="father_name"
+                               placeholder="نام پدر خود را وارد كنيد..." required>
                     </div>
                     <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="birthday"> تاریخ تولد<span class='text-danger'>*</span> </label>
-                        <input type="text" name="birthday" class="form-control" id="birthday" value="{{ loginData.birthday }}" placeholder="" required data-jdp>
+                        <label for="birth"> تاریخ تولد<span class='text-danger'>*</span> </label>
+                        <input type="text" name="birth" class="form-control" id="birth"
+                               placeholder="" required data-jdp>
                     </div>
                     <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="codeMeli"> کد ملی<span class='text-danger'>*</span></label>
-                        <input type="number" name="codeMeli" class="form-control" id="codeMeli" value="{{ codeMeli }}" placeholder="" required>
-                    </div>
-                    <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="serialMeli"> سریال پشت کارت ملی </label>
-                        <input type="text" name="serialMeli" class="form-control" id="serialMeli" value="{{ loginData.serialMeli }}" placeholder="" >
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="shomareSh"> شماره شناسنامه/کدثبتی<span class='text-danger'>*</span> </label>
-                        <input type="number" name="shomareSh" class="form-control" id="shomareSh" value="{{ loginData.shomareSh }}"
+                        <label for="Ncode"> کد ملی<span class='text-danger'>*</span></label>
+                        <input type="number" name="Ncode" class="form-control" id="Ncode"
                                placeholder="" required>
                     </div>
                     <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="serialSh"> سریال شناسامه<span class='text-danger'>*</span> </label>
-                        <input type="text" name="serialSh" class="form-control" id="serialSh" value="{{ loginData.serialSh }}" placeholder="" required>
+                        <label for="series_Ncard"> سریال پشت کارت ملی </label>
+                        <input type="text" name="series_Ncard" class="form-control" id="series_Ncard"
+                               placeholder="" >
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 form-group mt-3 mt-md-0">
+                        <label for="id_number"> شماره شناسنامه/کدثبتی<span class='text-danger'>*</span> </label>
+                        <input type="number" name="id_number" class="form-control" id="id_number"
+                               placeholder="" required>
                     </div>
                     <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="seriSh"> سری شناسنامه<span class='text-danger'>*</span> </label>
-                        <input type="text" name="seriSh" class="form-control" id="seriSh" value="{{ loginData.sadereh }}" placeholder="" required>
+                        <label for="id_serial"> سریال شناسامه<span class='text-danger'>*</span> </label>
+                        <input type="text" name="id_serial" class="form-control" id="id_serial"
+                               placeholder="" required>
                     </div>
                     <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="sadereh"> صادره از/ ثبت شده در<span class='text-danger'>*</span> </label>
-                        <input type="text" name="sadereh" class="form-control" id="sadereh" value="{{ loginData.sadereh }}" placeholder="" required>
+                        <label for="id_series"> سری شناسنامه<span class='text-danger'>*</span> </label>
+                        <input type="text" name="id_series" class="form-control" id="id_series"
+                               placeholder="" required>
+                    </div>
+                    <div class="col-md-3 form-group mt-3 mt-md-0">
+                        <label for="registration"> صادره از/ ثبت شده در<span class='text-danger'>*</span> </label>
+                        <input type="text" name="registration" class="form-control" id="registration"
+                               placeholder="" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 form-group mt-3 mt-md-0">
-                        <label for="ostan"> استان<span class='text-danger'>*</span> </label>
-                        <input type="text" name="ostan" class="form-control" id="ostan" value="{{ loginData.ostan }}" placeholder="" required>
+                        <label for="state"> استان<span class='text-danger'>*</span> </label>
+                        <input type="text" name="state" class="form-control" id="state"
+                               placeholder="" required>
                     </div>
                     <div class="col-md-6 form-group mt-3 mt-md-0">
-                        <label for="shahr"> شهر<span class='text-danger'>*</span> </label>
-                        <input type="text" name="shahr" class="form-control" id="shahr" value="{{ loginData.shahr }}" placeholder="" required>
+                        <label for="city"> شهر<span class='text-danger'>*</span> </label>
+                        <input type="text" name="city" class="form-control" id="city"
+                               placeholder="" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-9 form-group mt-3 mt-md-0">
-                        <label for="neshaniShop"> نشانی فروشگاه/شرکت <span class='text-danger'>*</span></label>
-                        <input type="text" name="neshaniShop" class="form-control" id="neshaniShop" value="{{ loginData.neshaniShop }}" placeholder="" required>
+                        <label for="store_address"> نشانی فروشگاه/شرکت <span class='text-danger'>*</span></label>
+                        <input type="text" name="store_address" class="form-control" id="store_address"
+                               placeholder="" required>
                     </div>
                     <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="codePosti"> کد پستی محل نصب کارت خوان <span class='text-danger'>*</span></label>
-                        <input type="number" name="codePosti" class="form-control" id="codePosti" value="{{ loginData.codePosti }}" placeholder="" required>
+                        <label for="poscod_pos"> کد پستی محل نصب کارت خوان <span class='text-danger'>*</span></label>
+                        <input type="number" name="poscod_pos" class="form-control" id="poscod_pos"
+                               placeholder="" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="telephonShop"> تلفن فروشگاه <span class='text-danger'>*</span></label>
-                        <input type="number" name="telephonShop" class="form-control" id="telephonShop"  value="{{ loginData.telephonShop }}" placeholder="" required>
+                        <label for="store_phone"> تلفن فروشگاه <span class='text-danger'>*</span></label>
+                        <input type="number" name="store_phone" class="form-control" id="store_phone"
+                               placeholder="" required>
                     </div>
                     <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="shomareParvane"> شماره پروانه کسب/شماره صنفی اجاره نامه <span class='text-danger'>*</span></label>
-                        <input type="number" name="shomareParvane" class="form-control" id="shomareParvane"  value="{{ loginData.shomareParvane }}" placeholder="" required>
+                        <label for="business_num"> شماره پروانه کسب/شماره صنفی اجاره نامه <span class='text-danger'>*</span></label>
+                        <input type="number" name="business_num" class="form-control" id="business_num"
+                               placeholder="" required>
                     </div>
                     <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="codeRehgiri">کد رهگیری مالیاتی <span class='text-danger'>*</span></label>
-                        <input type="number" name="codeRehgiri" class="form-control" id="codeRehgiri"  value="{{ loginData.codeRehgiri }}" placeholder="" required>
+                        <label for="tax_code">کد رهگیری مالیاتی <span class='text-danger'>*</span></label>
+                        <input type="number" name="tax_code" class="form-control" id="tax_code"
+                               placeholder="" required>
                     </div>
                     <div class="col-md-3 form-group mt-3 mt-md-0">
                         <label for="senf"> صنف <span class='text-danger'>*</span></label>
-                        <input type="text" name="senf" class="form-control" id="senf"  value="{{ loginData.senf }}" placeholder="" required>
+                        <input type="text" name="senf" class="form-control" id="senf"
+                               placeholder="" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="teleHamrah"> تلفن همراه <span class='text-danger'>*</span></label>
-                        <input type="number" name="teleHamrah" class="form-control" id="teleHamrah" value="{{ loginData.teleHamrah}}" placeholder="" required>
+                        <label for="storephone"> تلفن همراه <span class='text-danger'>*</span></label>
+                        <input type="number" name="storephone" class="form-control" id="storephone"
+                               placeholder="" required>
                     </div>
                     <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="bestareErtebat"> بستر ارتباطی <span class='text-danger'>*</span></label>
-                        <select name="bestareErtebat" class=" form-control" id="bestareErtebat" required>
-                            <option value="{{ key }}"
-                                {% if loginData.bestareErtebat == value%}
-                                    selected
-                                {% endif %}>
-                                {{ value }}
-                            </option>
+                        <label for="substrate_type"> بستر ارتباطی <span class='text-danger'>*</span></label>
+                        <select name="substrate_type" class=" form-control" id="substrate_type" required>
                             <option value="DIUALUP">DIUALUP</option>
                             <option value="GPRS">GPRS</option>
                             <option value="COMBO">COMBO</option>
@@ -378,202 +423,129 @@
         </div>
     </div>
 </section>
-{% endblock %}
-{% include 'web/footer.html' %}
-{% block js %}
 
-    <script type="text/javascript">
+<!--=========== js ========== -->
+<!--  jquery cdn link  -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
+<!-- Persian DateTime Picker CND -->
+<script type="text/javascript" src="https://unpkg.com/@majidh1/jalalidatepicker/dist/jalalidatepicker.min.js">
 
-    function getCookie(name) {
-            var cookieValue = null;
-            if (document.cookie && document.cookie !== '') {
-                var cookies = document.cookie.split(';');
-                for (var i = 0; i < cookies.length; i++) {
-                    var cookie = cookies[i].trim();
-                    // Does this cookie string begin with the name we want?
-                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                        break;
-                    }
-                }
-            }
-            return cookieValue;
-        }
+    <!-- Vendor JS Files -->
+    <script src="public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="public/vendor/aos/aos.js"></script>
+<script src="public/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="public/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="public/vendor/swiper/swiper-bundle.min.js"></script>
 
-        var csrftoken = getCookie('csrftoken');
+<!-- Main JS File -->
+<script src="src/js/main.js"></script>
 
+<!-- Toastr  JS cnd -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
+<!--<script src="node_modules/toastr/nuget/content/scripts/toastr.js"></script>-->
 
-
-        function addData() {
-
-            var name = $("#name").val().trim();
-            var family = $("#family").val().trim();
-            var fatherName = $("#fatherName").val();
-            var birthday = $("#birthday").val();
-            var codeMeli = $("#codeMeli").val();
-            var serialMeli = $("#serialMeli").val();
-            var shomareSh = $("#shomareSh").val();
-            var serialSh = $("#serialSh").val();
-            var seriSh = $("#seriSh").val();
-            var sadereh = $("#sadereh").val();
-            var ostan = $("#ostan").val();
-            var shahr = $("#shahr").val();
-            var neshaniShop = $("#neshaniShop").val();
-            var codePosti = $("#codePosti").val();
-            var telephonShop = $("#telephonShop").val();
-            var shomareParvane = $("#shomareParvane").val();
-            var codeRehgiri = $("#codeRehgiri").val();
-            var senf = $("#senf").val();
-            var teleHamrah = $("#teleHamrah").val();
-
-            var bestareErtebat = $("#bestareErtebat").find("option:selected").val();
-            var malekiyat = $("#malekiyat").find("option:selected").val();
-            var mohlateEjareFrom = $("#mohlateEjareFrom").val();
-            var mohlateEjareTo = $("#mohlateEjareTo").val();
-            var nameMoaref = $("#nameMoaref").val();
-            var familyMoaref = $("#familyMoaref").val();
-            var telMoaref = $("#telMoaref").val();
-            var neshaniMoaref = $("#neshaniMoaref").val();
-            var shomareHesab = $("#shomareHesab").val();
-            var nameBank = $("#nameBank").val();
-            var shomareShaba = $("#shomareShaba").val();
-            var shomareHesabTow = $("#shomareHesabTow").val();
-            var nameBankTwo = $("#nameBankTwo").val();
-            var shomareShabaTwo = $("#shomareShabaTwo").val();
-            var nameFamilyKarshenas = $("#nameFamilyKarshenas").val();
-
-            {#var displayed = $("#displayed").attr("checked") ? true : false;#}
-            var paziresh = $("#paziresh");
-
-
-            var javazKasb = document.getElementById("javazKasb").files[0];
-            var ejarehName = document.getElementById("ejarehName").files[0];
-            var sanadMalek = document.getElementById("sanadMalek").files[0];
-            var tsvirShenasnameh = document.getElementById("tsvirShenasnameh").files[0];
-            var rooyeCartmeli = document.getElementById("rooyeCartmeli").files[0];
-            var poshtCartmeli = document.getElementById("poshtCartmeli").files[0];
-            var tsvirEmzaMohr = document.getElementById("tsvirEmzaMohr").files[0];
-            var sabinFormFirst = document.getElementById("sabinFormFirst").files[0];
-            var sabinFormTwo = document.getElementById("sabinFormTwo").files[0];
-
-            {#console.log(displayed.is(":checked"))#}
-
-           {% comment %} if (productName === "" || brand === "" || price === "" || inventory === "") {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'خطا',
-                    text: 'تمامی ایتم ها باید مقدار دهی شود!',
-                    footer: '<a href="">Why do I have this issue?</a>'
-                });
-                return;
-            }{% endcomment %}
-
-            var formdata = new FormData();
-            formdata.append('name', name);
-            formdata.append('family', family);
-            formdata.append('fatherName', fatherName);
-            formdata.append('birthday', birthday);
-            formdata.append('codeMeli', codeMeli);
-            formdata.append('serialMeli', serialMeli);
-            formdata.append('shomareSh', shomareSh);
-            formdata.append('serialSh', serialSh);
-            formdata.append('seriSh', seriSh);
-            formdata.append('sadereh', sadereh);
-            formdata.append('ostan', ostan);
-            formdata.append('shahr', shahr);
-            formdata.append('neshaniShop', neshaniShop);
-            formdata.append('codePosti', codePosti);
-            formdata.append('telephonShop', telephonShop);
-            formdata.append('shomareParvane', shomareParvane);
-            formdata.append('codeRehgiri', codeRehgiri);
-            formdata.append('senf', senf);
-            formdata.append('teleHamrah', teleHamrah);
-            formdata.append('bestareErtebat', bestareErtebat);
-            formdata.append('malekiyat', malekiyat);
-            formdata.append('mohlateEjareFrom', mohlateEjareFrom);
-            formdata.append('mohlateEjareTo', mohlateEjareTo);
-            formdata.append('nameMoaref', nameMoaref);
-            formdata.append('familyMoaref', familyMoaref);
-            formdata.append('telMoaref', telMoaref);
-            formdata.append('neshaniMoaref', neshaniMoaref);
-            formdata.append('shomareHesab', shomareHesab);
-            formdata.append('nameBank', nameBank);
-            formdata.append('shomareShaba', shomareShaba);
-            formdata.append('shomareHesabTow', shomareHesabTow);
-            formdata.append('nameBankTwo', nameBankTwo);
-            formdata.append('shomareShabaTwo', shomareShabaTwo);
-            formdata.append('nameFamilyKarshenas', nameFamilyKarshenas);
-            formdata.append('paziresh', paziresh.is(":checked"));
-            formdata.append("javazKasb", javazKasb);
-            formdata.append("ejarehName", ejarehName);
-            formdata.append("sanadMalek", sanadMalek);
-            formdata.append("tsvirShenasnameh", tsvirShenasnameh);
-            formdata.append("rooyeCartmeli", rooyeCartmeli);
-            formdata.append("poshtCartmeli", poshtCartmeli);
-            formdata.append("tsvirEmzaMohr", tsvirEmzaMohr);
-            formdata.append("sabinFormFirst", sabinFormFirst);
-            formdata.append("sabinFormTwo", sabinFormTwo);
-
-
-
-
-            swal.fire({
-                title: 'ذخیره محصول',
-                text: "آیا میخواهید محصول دخیره شود؟",
-                icon: 'info',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'بله دخیره شود',
-                cancelButtonText: 'خیر'
-            }).then((result) => {
-                if (result.value) {
-
-                    $.ajax({
-                        url: `/registerData`,
-                        method: 'POST',
-                        headers: {
-                            //'Content-type': 'application/json',
-                            //'X-CSRFToken': csrftoken,
-                        },
-                        processData: false,
-                        contentType: false,
-                        data: formdata,
-                        success: function (data) {
-                            console.log(data)
-                            if (data['isSuccess'] === true) {
-                                swal.fire(
-                                    'موفق!',
-                                    data['message'],
-                                    'success'
-                                ).then(function (isConfirm) {
-                                    location.reload();
-                                });
-
-                            } else {
-
-                                swal.fire(
-                                    'هشدار!',
-                                    data['message'],
-                                    'warning'
-                                );
-
-                            }
-                        },
-                        error: function (request, status, error) {
-                            alert(request.responseText);
-                        }
-
-                    });
-
-                }
-            })
-
-        }
-
-
-    </script>
-
-{% endblock %}
+<!--<script>-->
+<!--    $('form#pos-form').submit(function(e){-->
+<!--        e.preventDefault()-->
+<!--        let first_name = $('input[name=Fname]').val();-->
+<!--        let last_name = $('input[name=lname]').val();-->
+<!--        let father_name = $('input[name=father_name]').val();-->
+<!--        let birth = $('input[name=birth]').val();-->
+<!--        let Ncode = $('input[name=Ncode]').val();-->
+<!--        let series_Ncard = $('input[name=series_Ncard]').val();-->
+<!--        let id_number = $('input[name=id_number]').val();-->
+<!--        let id_serial = $('input[name=id_serial]').val();-->
+<!--        let id_series = $('input[name=id_series]').val();-->
+<!--        let registration = $('input[name=registration]').val();-->
+<!--        let state = $('input[name=state]').val();-->
+<!--        let city = $('input[name=city]').val();-->
+<!--        let store_address = $('input[name=store_address]').val();-->
+<!--        let poscod_pos = $('input[name=poscod_pos]').val();-->
+<!--        let store_phone = $('input[name=store_phone]').val();-->
+<!--        let business_num = $('input[name=business_num]').val();-->
+<!--        let tax_code = $('input[name=tax_code]').val();-->
+<!--        let senf = $('input[name=senf]').val();-->
+<!--        let storephone = $('input[name=storephone]').val();-->
+<!--        let substrate_type = $('select[name=substrate_type]').val();-->
+<!--        let ownership_type = $('select[name=ownership_type]').val();-->
+<!--        let lease_from = $('input[name=lease_from]').val();-->
+<!--        let lease_until = $('input[name=lease_until]').val();-->
+<!--        let identifier_fname = $('input[name=identifier_fname]').val();-->
+<!--        let identifier_lname = $('input[name=identifier_lname]').val();-->
+<!--        let identifier_phone = $('input[name=identifier_phone]').val();-->
+<!--        let identifier_address = $('input[name=identifier_address]').val();-->
+<!--        let first_accountNum = $('input[name=first_accountNum]').val();-->
+<!--        let first_bankName = $('select[name=first_bankName]').val();-->
+<!--        let first_shaba_code = $('input[name=first_shaba_code]').val();-->
+<!--        let secand_accountNum = $('input[name=secand_accountNum]').val();-->
+<!--        let second_bankName = $('select[name=second_bankName]').val();-->
+<!--        let second_shaba_code = $('input[name=second_shaba_code]').val();-->
+<!--        let paziresh = $('input[name=paziresh]').val();-->
+<!--        let image_permission = $('input[name=image_permission]').val();-->
+<!--        let image_lease = $('input[name=image_lease]').val();-->
+<!--        let image_owership = $('input[name=image_owership]').val();-->
+<!--        let image = $('input[name=image]').val();-->
+<!--        let image_onNaCard = $('input[name=image_onNaCard]').val();-->
+<!--        let image_BackNaCard = $('input[name=image_BackNaCard]').val();-->
+<!--        let image_sign = $('input[name=image_sign]').val();-->
+<!--        let image_sabin1 = $('input[name=image_sabin1]').val();-->
+<!--        let image_sabin2 = $('input[name=image_sabin2]').val();-->
+<!--        let url = $('form#pos-form').attr('action');-->
+<!--        $.ajax({-->
+<!--            type: 'POST',-->
+<!--            url: url,-->
+<!--            data:{-->
+<!--                first_name:first_name,-->
+<!--                last_name:last_name,-->
+<!--                father_name:father_name,-->
+<!--                birth:birth,-->
+<!--                national_code:Ncode,-->
+<!--                national_card_series:series_Ncard,-->
+<!--                birthcertificate_number: id_number,-->
+<!--                birthcertificate_serial:id_serial,-->
+<!--                birthcertificate_series:id_series,-->
+<!--                issued:registration,-->
+<!--                state:state,-->
+<!--                city:city,-->
+<!--                store_address:store_address,-->
+<!--                zipcode_pos:poscod_pos,-->
+<!--                store_phone:store_phone,-->
+<!--                business_license_number:business_num,-->
+<!--                tax_code:tax_code,-->
+<!--                senf:senf,-->
+<!--                mobile:storephone,-->
+<!--                substrate:substrate_type,-->
+<!--                ownership:ownership_type,-->
+<!--                leaseterm_from:lease_from,-->
+<!--                leaseterm_to:lease_until,-->
+<!--                introducer_name:identifier_fname,-->
+<!--                introducer_lastname:identifier_lname,-->
+<!--                introducer_phone:identifier_phone,-->
+<!--                introducer_address:identifier_address,-->
+<!--                first_account_number:first_accountNum,-->
+<!--                first_bank_name:first_bankName,-->
+<!--                first_shaba_number:first_shaba_code,-->
+<!--                second_account_number:secand_accountNum ,-->
+<!--                second_bank_name:second_bankName,-->
+<!--                second_shaba_number:second_shaba_code,-->
+<!--                paziresh:paziresh,-->
+<!--                businesslicense:image_permission,-->
+<!--                leaseterm:image_lease,-->
+<!--                ownership_document:image_owership,-->
+<!--                birthcertificate:image,-->
+<!--                front_nationalcard:image_onNaCard,-->
+<!--                back_nationalcard:image_BackNaCard,-->
+<!--                signatureseal:image_sign,-->
+<!--                sabin_form_first:image_sabin1,-->
+<!--                sabin_form_second:image_sabin2-->
+<!--            },-->
+<!--            success: function (response) {-->
+<!--                console.log(response)-->
+<!--            }-->
+<!--        })-->
+<!--    })-->
+<!--</script>-->
+</body>
+</html>
