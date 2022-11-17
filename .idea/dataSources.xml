@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="kartdb@localhost" uuid="588b40c0-318a-4cf4-a25a-fc8d3ecd1862">
+    <data-source source="LOCAL" name="kartdb@localhost" uuid="7a607b96-78c9-4611-9ada-5cd0901a45d3">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>

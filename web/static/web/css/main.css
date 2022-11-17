@@ -23,6 +23,15 @@ h5,
 h6 {
     font-family: "B Homa";
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
 
 @media (min-width: 1400px) {
     .container, .container-lg,
@@ -386,6 +395,7 @@ section {
 }
 .pos .pos-form  .file-name{
     border: none;
+    background-color: rgba(10,83,190,0);
 }
 .pos  .pos-form button[type=submit] {
     background: var(--color-primary);

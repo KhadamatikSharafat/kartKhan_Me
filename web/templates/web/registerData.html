@@ -23,6 +23,7 @@
 
             </div>
             <form action="" method="post" role="form" class="pos-form" id="pos-form">
+
                 <div class="row">
                     <div class="col-md-6 form-group mt-3 mt-md-0">
                         <label for="name"> نام <span class='text-danger'>*</span></label>
@@ -97,7 +98,7 @@
                     </div>
                     <div class="col-md-3 form-group mt-3 mt-md-0">
                         <label for="shomareParvane"> شماره پروانه کسب/شماره صنفی اجاره نامه <span class='text-danger'>*</span></label>
-                        <input type="number" name="shomareParvane" class="form-control" id="shomareParvane"  value="{{ loginData.shomareParvane }}" placeholder="" required>
+                        <input type="number" name="shomareParvane" class="form-control" id="shomareParvane"  value="{{loginData.shomareParvane}}" placeholder="" required>
                     </div>
                     <div class="col-md-3 form-group mt-3 mt-md-0">
                         <label for="codeRehgiri">کد رهگیری مالیاتی <span class='text-danger'>*</span></label>
@@ -129,8 +130,16 @@
                         </select>
                     </div>
                     <div class="col-md-6 form-group mt-3 mt-md-0">
-                        <label for="ownership_type">نوع مالکیت محل فعالیت <span class='text-danger'>*</span></label>
-                        <select name="ownership_type" class=" form-control" id="ownership_type" required>
+                        <label for="malekiyat">نوع مالکیت محل فعالیت <span class='text-danger'>*</span></label>
+                        <select name="malekiyat" class=" form-control" id="malekiyat" required>
+                             {% for key , value in malekType %}
+                            <option value="{{ key }}"
+                                {% if loginData.malekiyat == value%}
+                                    selected
+                                {% endif %}>
+                                {{ value }}
+                            </option>
+                        {% endfor %}
                             <option value="ملکی">ملکی</option>
                             <option value="سرقفلی">سرقفلی</option>
                             <option value="استیجاری">استیجاری</option>
@@ -139,47 +148,49 @@
                 </div>
                 <div class="row">
                     <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="lease_from">مهلت اجاره نامه از تاریخ</label>
-                        <input type="text" name="lease_from" class="form-control" id="lease_from"
+                        <label for="mohlateEjareFrom">مهلت اجاره نامه از تاریخ</label>
+                        <input type="text" name="mohlateEjareFrom" class="form-control" id="mohlateEjareFrom" value="{{ loginData.mohlateEjareFrom }}"
                                placeholder=""  data-jdp>
                     </div>
                     <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="lease_until">مهلت اجاره نامه تا تاریخ </label>
-                        <input type="text" name="lease_until" class="form-control" id="lease_until"
-                               placeholder=""  data-jdp>
+                        <label for="mohlateEjareTo">مهلت اجاره نامه تا تاریخ </label>
+                        <input type="text" name="mohlateEjareTo" class="form-control" id="mohlateEjareTo"
+                               value="{{ loginData.mohlateEjareTo }}" placeholder=""  data-jdp>
                     </div>
                     <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="identifier_fname"> نام معرف اول <span class='text-danger'>*</span></label>
-                        <input type="text" name="identifier_fname" class="form-control" id="identifier_fname"
-                               placeholder="" required >
+                        <label for="nameMoaref"> نام معرف اول <span class='text-danger'>*</span></label>
+                        <input type="text" name="nameMoaref" class="form-control" id="nameMoaref" value="{{ loginData.nameMoaref }}" placeholder="" required >
                     </div>
                     <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="identifier_lname"> نام خانوادگی معرف اول <span class='text-danger'>*</span></label>
-                        <input type="text" name="identifier_lname" class="form-control" id="identifier_lname"
+                        <label for="familyMoaref"> نام خانوادگی معرف اول <span class='text-danger'>*</span></label>
+                        <input type="text" name="familyMoaref" class="form-control" id="familyMoaref" value="{{ loginData.familyMoaref }}"
                                placeholder="" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="identifier_phone">تلفن همراه معرف اول <span class='text-danger'>*</span></label>
-                        <input type="number" name="identifier_phone" class="form-control" id="identifier_phone"
-                               placeholder="" required>
+                        <label for="telMoaref">تلفن همراه معرف اول <span class='text-danger'>*</span></label>
+                        <input type="number" name="telMoaref" class="form-control" id="telMoaref" value="{{ loginData.telMoaref }}" placeholder="" required>
                     </div>
                     <div class="col-md-9 form-group mt-3 mt-md-0">
-                        <label for="identifier_address"> نشانی محل سکونت معرف اول </label>
-                        <input type="text" name="identifier_address" class="form-control" id="identifier_address"
-                               placeholder="" required>
+                        <label for="neshaniMoaref"> نشانی محل سکونت معرف اول </label>
+                        <input type="text" name="neshaniMoaref" class="form-control" id="neshaniMoaref" value="{{ loginData.neshaniMoaref }}" placeholder="" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="ّfirst_accountNum"> شماره حساب اول <span class='text-danger'>*</span></label>
-                        <input type="number" name="first_accountNum" class="form-control" id="ّfirst_accountNum"
-                               placeholder="" required>
+                        <label for="shomareHesab"> شماره حساب اول <span class='text-danger'>*</span></label>
+                        <input type="number" name="shomareHesab" class="form-control" id="shomareHesab"  value="{{ loginData.shomareHesab }}" placeholder="" required>
                     </div>
                     <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="first_bankName"> نام بانک اول <span class='text-danger'>*</span></label>
-                        <select name="first_bankName" class=" form-control" id="first_bankName" required>
+                        <label for="nameBank"> نام بانک اول <span class='text-danger'>*</span></label>
+                        <select name="nameBank" class=" form-control" id="nameBank" required>
+                             <option value="{{ key }}"
+                                {% if loginData.nameBank == value%}
+                                    selected
+                                {% endif %}>
+                                {{ value }}
+                            </option>
                             <option value="ایران زمین">ایران زمین</option>
                             <option value="آینده">آینده</option>
                             <option value="پست بانک">پست بانک</option>
@@ -205,18 +216,24 @@
                         </select>
                     </div>
                     <div class="col-md-6 form-group mt-3 mt-md-0">
-                        <label for="first_shaba_code">شماره شبا اول <span class='text-danger'>*</span></label>
-                        <input type="number" name="first_shaba_code" class="form-control" id="first_shaba_code" placeholder="" required>
+                        <label for="shomareShaba">شماره شبا اول <span class='text-danger'>*</span></label>
+                        <input type="number" name="shomareShaba" class="form-control" id="shomareShaba" value="{{ loginData.shomareShaba }}" placeholder="" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="ّsecond_accountNum"> شماره حساب دوم </label>
-                        <input type="number" name="secand_accountNum" class="form-control" id="ّsecond_accountNum" placeholder="" >
+                        <label for="shomareHesabTow"> شماره حساب دوم </label>
+                        <input type="number" name="shomareHesabTow" class="form-control" id="shomareHesabTow" value="{{ loginData.shomareHesabTow }}" placeholder="" >
                     </div>
                     <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="second_bankName"> نام بانک دوم </label>
-                        <select name="second_bankName" class=" form-control" id="second_bankName">
+                        <label for="nameBankTwo"> نام بانک دوم </label>
+                        <select name="nameBankTwo" class=" form-control" id="nameBankTwo">
+                             <option value="{{ key }}"
+                                {% if loginData.nameBankTwo == value%}
+                                    selected
+                                {% endif %}>
+                                {{ value }}
+                            </option>
                             <option value="ایران زمین">ایران زمین</option>
                             <option value="آینده">آینده</option>
                             <option value="پست بانک">پست بانک</option>
@@ -242,15 +259,19 @@
                         </select>
                     </div>
                     <div class="col-md-6 form-group mt-3 mt-md-0">
-                        <label for="second_shaba_code">شماره شبا دوم </label>
-                        <input type="number" name="second_shaba_code" class="form-control" id="second_shaba_code" placeholder="" >
+                        <label for="shomareShabaTwo">شماره شبا دوم </label>
+                        <input type="number" name="shomareShabaTwo" class="form-control" id="shomareShabaTwo"  value="{{ loginData.shomareShabaTwo }}" placeholder="" >
                     </div>
                 </div>
                 <div class="col-md-12 form-group mt-3 mt-md-0">
                     <label for="paziresh">پذیرش <span class='text-danger'>*</span></label>
                     <br>
                     <label class="switch" id="paziresh">
-                        <input type="checkbox" name="paziresh"  required>
+                        <input type="checkbox" name="paziresh"
+                               {% if loginData.paziresh %}
+                                    checked="checked"
+                               {% endif %}
+                               required>
                         <span class="slider round"></span>
                     </label>
                     <label class="form-check-label"> تمامی حساب های اعلامی بایدفقط به نام شخص یا اشخاص پذیرنده
@@ -258,121 +279,121 @@
                 </div>
                 <div class="row">
                     <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="image_permission">جواز کسب<span class='text-danger'>*</span></label>
+                        <label for="javazKasb">جواز کسب<span class='text-danger'>*</span></label>
                         <div class="input-group">
                             <label class="input-group-btn">
                                 <span class="btn ">
                                     بارگذاري فايل&hellip;
-                                    <input type="file" name="image_permission" id="image_permission" required multiple>
+                                    <input type="file" name="javazKasb" id="javazKasb"   required multiple>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control file-name "  value="{{ loginData.javazKasb }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-3 form-group mt-3 mt-md-0">
+                        <label for="ejarehName">اجاره نامه</label>
+                        <div class="input-group">
+                            <label class="input-group-btn">
+                                <span class="btn ">
+                                    بارگذاري فايل&hellip;
+                                    <input type="file" name="ejarehName" id="ejarehName"   multiple>
                                 </span>
                             </label>
                             <input type="text" class="form-control file-name " readonly>
                         </div>
                     </div>
                     <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="image_lease">اجاره نامه</label>
+                        <label for="sanadMalek">سند مالکیت</label>
                         <div class="input-group">
                             <label class="input-group-btn">
                                 <span class="btn ">
                                     بارگذاري فايل&hellip;
-                                    <input type="file" name="image_lease" id="image_lease" multiple>
+                                    <input type="file" name="sanadMalek" id="sanadMalek"  multiple>
                                 </span>
                             </label>
-                            <input type="text" class="form-control file-name " readonly>
+                            <input type="text" class="form-control file-name "value="{{ loginData.sanadMalek }}" readonly>
                         </div>
                     </div>
                     <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="image_owership">سند مالکیت</label>
+                        <label for="tsvirShenasnameh">تصویر دو صفحه اول شناسنامه<span class='text-danger'>*</span></label>
                         <div class="input-group">
                             <label class="input-group-btn">
                                 <span class="btn ">
                                     بارگذاري فايل&hellip;
-                                    <input type="file" name="image_owership" id="image_owership" multiple>
+                                    <input type="file" name="tsvirShenasnameh" id="tsvirShenasnameh" required multiple>
                                 </span>
                             </label>
-                            <input type="text" class="form-control file-name " readonly>
-                        </div>
-                    </div>
-                    <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="image">تصویر دو صفحه اول شناسنامه<span class='text-danger'>*</span></label>
-                        <div class="input-group">
-                            <label class="input-group-btn">
-                                <span class="btn ">
-                                    بارگذاري فايل&hellip;
-                                    <input type="file" name="image" id="image" required multiple>
-                                </span>
-                            </label>
-                            <input type="text" class="form-control file-name " readonly>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="image_onNaCard">تصویر رو کارت ملی<span class='text-danger'>*</span></label>
-                        <div class="input-group">
-                            <label class="input-group-btn">
-                                <span class="btn ">
-                                    بارگذاري فايل&hellip;
-                                    <input type="file" name="image_onNaCard" id="image_onNaCard" required multiple>
-                                </span>
-                            </label>
-                            <input type="text" class="form-control file-name " readonly>
-                        </div>
-                    </div>
-                    <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="image_BackNaCard">تصویر پشت کارت ملی<span class='text-danger'>*</span></label>
-                        <div class="input-group">
-                            <label class="input-group-btn">
-                                <span class="btn ">
-                                    بارگذاري فايل&hellip;
-                                    <input type="file" name="image_BackNaCard" id="image_BackNaCard" required multiple>
-                                </span>
-                            </label>
-                            <input type="text" class="form-control file-name " readonly>
-                        </div>
-                    </div>
-                    <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="image_sign">تصویر مهر و امضا<span class='text-danger'>*</span></label>
-                        <div class="input-group">
-                            <label class="input-group-btn">
-                                <span class="btn ">
-                                    بارگذاري فايل&hellip;
-                                    <input type="file" name="image_sign" id="image_sign" required multiple>
-                                </span>
-                            </label>
-                            <input type="text" class="form-control file-name " readonly>
-                        </div>
-                    </div>
-                    <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="image_sabin1">تصویر صفحه اول فرم سابین<span class='text-danger'>*</span></label>
-                        <div class="input-group">
-                            <label class="input-group-btn">
-                                <span class="btn ">
-                                    بارگذاري فايل&hellip;
-                                    <input type="file" name="image_sabin1" id="image_sabin1" required multiple>
-                                </span>
-                            </label>
-                            <input type="text" class="form-control file-name " readonly>
+                            <input type="text" class="form-control file-name " value="{{ loginData.tsvirShenasnameh }}" readonly>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-3 form-group mt-3 mt-md-0">
-                        <label for="image_sabin2">تصویر صفحه دوم فرم سابین<span class='text-danger'>*</span></label>
+                        <label for="rooyeCartmeli">تصویر رو کارت ملی<span class='text-danger'>*</span></label>
                         <div class="input-group">
                             <label class="input-group-btn">
                                 <span class="btn ">
                                     بارگذاري فايل&hellip;
-                                    <input type="file" name="image_sabin2" id="image_sabin2" required multiple>
+                                    <input type="file" name="rooyeCartmeli" id="rooyeCartmeli" required multiple>
                                 </span>
                             </label>
-                            <input type="text" class="form-control file-name " readonly>
+                            <input type="text" class="form-control file-name " value="{{ loginData.rooyeCartmeli }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-3 form-group mt-3 mt-md-0">
+                        <label for="poshtCartmeli">تصویر پشت کارت ملی<span class='text-danger'>*</span></label>
+                        <div class="input-group">
+                            <label class="input-group-btn">
+                                <span class="btn ">
+                                    بارگذاري فايل&hellip;
+                                    <input type="file" name="poshtCartmeli" id="poshtCartmeli" required multiple>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control file-name "value="{{ loginData.poshtCartmeli }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-3 form-group mt-3 mt-md-0">
+                        <label for="tsvirEmzaMohr">تصویر مهر و امضا<span class='text-danger'>*</span></label>
+                        <div class="input-group">
+                            <label class="input-group-btn">
+                                <span class="btn ">
+                                    بارگذاري فايل&hellip;
+                                    <input type="file" name="tsvirEmzaMohr" id="tsvirEmzaMohr" required multiple>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control file-name " value="{{ loginData.tsvirEmzaMohr }}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-3 form-group mt-3 mt-md-0">
+                        <label for="sabinFormFirst">تصویر صفحه اول فرم سابین<span class='text-danger'>*</span></label>
+                        <div class="input-group">
+                            <label class="input-group-btn">
+                                <span class="btn ">
+                                    بارگذاري فايل&hellip;
+                                    <input type="file" name="sabinFormFirst" id="sabinFormFirst" required multiple>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control file-name " value="{{ loginData.sabinFormFirst }}" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 form-group mt-3 mt-md-0">
+                        <label for="sabinFormTwo">تصویر صفحه دوم فرم سابین<span class='text-danger'>*</span></label>
+                        <div class="input-group">
+                            <label class="input-group-btn">
+                                <span class="btn ">
+                                    بارگذاري فايل&hellip;
+                                    <input type="file" name="sabinFormTwo" id="sabinFormTwo" required multiple>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control file-name "value="{{ loginData.sabinFormTwo }}" readonly>
                         </div>
                     </div>
                     <div class="col-md-3 form-group mt-3 mt-md-0"></div>
                 </div>
                 <br>
-                <button id="submit" type="submit" class=" col-md-12 form-group"> ثبت اطلاعات</button>
+                <button id="submit" type="submit" class=" col-md-12 form-group" onclick="addData()"> ثبت اطلاعات</button>
             </form>
 
         </div>
@@ -383,7 +404,6 @@
 {% block js %}
 
     <script type="text/javascript">
-
 
     function getCookie(name) {
             var cookieValue = null;
@@ -406,7 +426,7 @@
 
 
 
-        function addData() {
+        function addData(e) {
 
             var name = $("#name").val().trim();
             var family = $("#family").val().trim();
@@ -442,7 +462,7 @@
             var shomareHesabTow = $("#shomareHesabTow").val();
             var nameBankTwo = $("#nameBankTwo").val();
             var shomareShabaTwo = $("#shomareShabaTwo").val();
-            var nameFamilyKarshenas = $("#nameFamilyKarshenas").val();
+            var nameFamilyKarshenas = "hi";
 
             {#var displayed = $("#displayed").attr("checked") ? true : false;#}
             var paziresh = $("#paziresh");
@@ -553,7 +573,7 @@
                                 });
 
                             } else {
-
+                                console.log(data['message'])
                                 swal.fire(
                                     'هشدار!',
                                     data['message'],
@@ -564,6 +584,7 @@
                         },
                         error: function (request, status, error) {
                             alert(request.responseText);
+                            console.log(error)
                         }
 
                     });

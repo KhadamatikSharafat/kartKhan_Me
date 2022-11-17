@@ -48,8 +48,8 @@
 {% block js %}
     <script type="text/javascript">
 
-    function goRegisterPage(codeMeli) {
-        var url = '/registerPage'
+    function goRegisterList(codeMeli) {
+        var url = '/registerList'
         var formData = new FormData();
         formData.append('codeMeli', codeMeli);
         fetch(url, {
@@ -61,10 +61,10 @@
             body: formData
         }).then(function (response) {
 
-            });
+        });
     }
         function login() {
-
+        {#var url = '/registerList'#}
         var codeMeli = document.getElementById("codeMeli").value;
         var password = document.getElementById("password").value;
 
@@ -116,7 +116,7 @@
                                 ).then(function (isConfirm) {
                                     //location.reload();
                                     //goRegisterPage(codeMeli)
-                                    location.replace(`/registerPage/${codeMeli}`);
+                                    location.replace(`/registerList/${codeMeli}`);
                                 });
 
 
