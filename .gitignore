@@ -1,0 +1,9 @@
+venv/
+.idea/
+media/
+
+**/__pycache__/
+*.pyc
+
+#pycdb.sqlite3
+#local_settings.py

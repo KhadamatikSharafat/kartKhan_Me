@@ -10,8 +10,8 @@ from .views import registerListView
 app_name = 'web'
 urlpatterns = [
         path('', views.loginPage, name='loginPage'),
-        path('registerPage/<int:pk>', views.registerPage, name='registerPage'),
-        path('registerData', views.registerData, name='registerData'),
+        # path('registerPage/<int:pk>', views.registerPage, name='registerPage'),
+        # path('registerData', views.registerData, name='registerData'),
         path('registerList/<int:pk>', registerListView.as_view(), name='registerList'),
         path('loginUser', views.loginUser, name='loginUser'),
 

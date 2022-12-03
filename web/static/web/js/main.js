@@ -3,7 +3,7 @@
  Config info
  */
     //After publishing, it will be changed to the main address of the domain.
-let baseUrl = 'http://localhost:63342/khadamatik_group/'
+// let baseUrl = 'http://localhost:63342/khadamatik_group/'
 
 /**
  ============== Form Section ================

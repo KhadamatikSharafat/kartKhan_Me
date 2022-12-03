@@ -41,21 +41,21 @@ def loginUser(request):
         }
         return JsonResponse(data)
 
-@csrf_exempt
-def registerPage(request,pk):
-    checkRegister = ''
-    try:
-        checkRegister = register.objects.get(codeMeli=pk)
-        print(checkRegister)
-    except Exception as e:
-        print(e)
-    # data = ''
-    # if checkRegister.exists():
-    #     data = registerSerializer(checkRegister, many=False)
-    #     print(data.data)
-    bestarType = register.bestarType
-    malekType = register.malekType
-    return render(request, 'web/registerData.html',{'codeMeli':pk,'loginData': checkRegister, 'bestarType': bestarType, 'malekType': malekType})
+# @csrf_exempt
+# def registerPage(request,pk):
+#     checkRegister = ''
+#     try:
+#         checkRegister = register.objects.get(codeMeli=pk)
+#         print(checkRegister)
+#     except Exception as e:
+#         print(e)
+#     # data = ''
+#     # if checkRegister.exists():
+#     #     data = registerSerializer(checkRegister, many=False)
+#     #     print(data.data)
+#     bestarType = register.bestarType
+#     malekType = register.malekType
+#     return render(request, 'web/registerData.html',{'codeMeli':pk,'loginData': checkRegister, 'bestarType': bestarType, 'malekType': malekType})
 
 @csrf_exempt
 def registerData(request):
@@ -281,22 +281,23 @@ def registerData(request):
 class registerListView(APIView):
 
     def get(self, request,pk):
-        # posregisters = register.objects.filter(self, pk=pk)
-        # serializer = registerSerializer(posregisters, many=True, context={'request': request})
-        # return Response(serializer.data)
-        checkRegister = ''
-        try:
-            checkRegister = register.objects.filter(codeMeli=pk)
-            print(checkRegister)
-        except Exception as e:
-            print(e)
-        # data = ''
-        # if checkRegister.exists():
-        #     data = registerSerializer(checkRegister, many=False)
-        #     print(data.data)
-        bestarType = register.bestarType
-        malekType = register.malekType
-        return render(request, 'web/registerList.html',
-                      {'codeMeli': pk, 'loginData': checkRegister, 'bestarType': bestarType, 'malekType': malekType})
+
+        # checkRegister = ''
+        # try:
+        posregisters = register.objects.filter(self, codeMeli=pk)
+        serializer = registerSerializer(posregisters, many=True, context={'request': request})
+        return Response(serializer.data)
+        #     checkRegister = register.objects.filter(codeMeli=pk)
+        #     print(checkRegister)
+        # except Exception as e:
+        #     print(e)
+        # # data = ''
+        # # if checkRegister.exists():
+        # #     data = registerSerializer(checkRegister, many=False)
+        # #     print(data.data)
+        # bestarType = register.bestarType
+        # malekType = register.malekType
+        # return render(request, 'web/registerList.html',
+        #               {'codeMeli': pk, 'loginData': checkRegister, 'bestarType': bestarType, 'malekType': malekType})
 
 
